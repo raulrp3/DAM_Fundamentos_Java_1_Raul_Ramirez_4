@@ -27,6 +27,7 @@ public class Main {
         System.out.println("Vamos a comprobar si un número es negativo o positivo.");
         System.out.print("Introduce un número: ");
         numero =validarNumero(sc);
+        sc.close();
         System.out.println(comprobarNumero(numero));
     }
 }
