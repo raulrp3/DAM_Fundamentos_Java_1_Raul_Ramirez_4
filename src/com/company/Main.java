@@ -3,14 +3,28 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    public static int validarNumero(Scanner sc){
-        int numeroValidado;
-        while (!sc.hasNextInt()){
-            System.out.print("¡Introduce un valor numérico! ");
-            sc.next();
+    public static double validador(int opcion){
+        double validado = 0;
+        Scanner sc = new Scanner(System.in);
+        switch (opcion){
+            case  0:{
+                while(!sc.hasNextInt()){
+                    System.out.print("¡Por favor introduce un número entero! ");
+                    sc.next();
+                }
+                validado = sc.nextDouble();
+            }
+            break;
+            case 1:{
+                while(!sc.hasNextDouble()){
+                    System.out.print("¡Por favor introduce un número decimal! ");
+                    sc.next();
+                }
+                validado = sc.nextDouble();
+            }
+            break;
         }
-        numeroValidado = sc.nextInt();
-        return numeroValidado;
+        return  validado;
     }
     public static String comprobarNumero(int numero){
         String cadenaResultado;
@@ -26,7 +40,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Vamos a comprobar si un número es negativo o positivo.");
         System.out.print("Introduce un número: ");
-        numero =validarNumero(sc);
+        numero =(int)validador(0);
         sc.close();
         System.out.println(comprobarNumero(numero));
     }
